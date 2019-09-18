@@ -1,8 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(try.jpg);
+    background-image: url("blue.jpg");
     background-position: center;
     background-size: cover;
     font-family: sans-serif;
-}
+} 

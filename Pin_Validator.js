@@ -12,7 +12,37 @@ $(document).ready(function(){
         }
 })
 
-
+$.ajax({
+  method: 'GET',
+  url: `http://localhost:3000/users?email=${pinInput}`,
+  data: {
+    pinInput,
+  },
+  beforeSend: function() {
+    $('.inputMessage').html('Loading....');
+  },
+  success: function(response) {
+    if (response.length) {
+      $('.inputMessage').html('Pin already Used');
+    } else {
+      //Submit the user data if the user does not exist
+      $.ajax({
+        method: 'POST',
+        url: 'http://localhost:3000/users',
+        data: {
+          pinInput,
+        },
+        beforeSend: function() {
+          $('.inputMessage').html('Loading....');
+        },
+        success: function() {
+          $('.inputMessage').html('Pin OK');
+        },
+      });
+    }
+  },
+});
+});
 
 
 
@@ -89,4 +119,4 @@ $(document).ready(function(){
 //         }
 //       },
 //     });
-  });
+  // });
