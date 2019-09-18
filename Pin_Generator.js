@@ -9,16 +9,35 @@ $('.generatePin').click(function(event) {
     event.preventDefault();
     let generatedPin = generatePin();
     let date = new Date();
-    let expires = date.setTime(date.getTime()+(90*24*60*60*1000) )
+    date.setTime(date.getTime()+(90*24*60*60*1000) )
+    let expiry= ""; expiry=""+date.toGMTString();
     $.ajax({
         method: "POST",
         url: "http://localhost:3000/pin",
         data: {
             pinNumber: generatedPin,
-            expiryDate: expires
+            expiryDate: expiry
         }
     }).done(function() {
         alert('Done');
     });
 });
+
+$.ajax({
+    method: "GET",
+    url: "http://localhost:3000/pin",
+    success: function(data) {
+        for (pin of data) {
+            $("#pins").append(
+                `
+                    <li>${pin.pinNumber}  ${pin.expiryDate}</li>
+                `
+            );
+        }
+    }
+})
+
+
+
+
 });
