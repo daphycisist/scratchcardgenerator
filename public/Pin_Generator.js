@@ -9,7 +9,7 @@ function generatePin(){
       event.preventDefault();
       let generatedPin = generatePin();
       let date = new Date();
-      date.setTime(date.getTime()+(90*24*60*60*1000) )
+      date.setTime(date.getTime()+(90*24*60*60*1000)+1 )
       let expiry= ""; expiry=""+date.toGMTString();
       $.ajax({
           method: "POST",

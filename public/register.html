@@ -10,24 +10,20 @@
     <title>Card Pin Generator</title>
 </head>
 <body>
-    <button class="logout" id="logout" >logout</button>
+    <button class="logout" id="logout" >Logout</button>
     
     <form>
         <p class="inputMessage"></p>
         <input type="number" name="pinInput" id="pinInput"  placeholder="Input Pin" />
         <button class="PinSubmit">OK</button><br>
-        <input type="number" name="amountInput" id="amountInput"  placeholder="Input Amount" />
-
-
-                <button class="generatePin" id="genPin" >Generate Pin</button>
-                
-
-
+        <!-- <input type="number" name="amountInput" id="amountInput"  placeholder="Input Amount" /> -->
+        <div><button class="generatePin" id="genPin" >Generate Pin</button></div>
     </form> 
-    <ul id="pins"></ul>
+         
+    <div class="pocket"><ul id="pins" class="text-success" list-style: none></ul></div>
 
-          <p class="genMessage" id="genMessage"></p>
-  <p class="genDate" id="genDate"></p>
+    <p class="genMessage" id="genMessage"></p>
+    <p class="genDate" id="genDate"></p>
 
     <script src="./jquery.js"></script>
     <script src="./Pin_Validator.js"></script> 
